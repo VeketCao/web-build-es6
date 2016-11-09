@@ -10,6 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');//可以把css�
 const srcDir = path.resolve(process.cwd(),'src');
 const glob = require('glob');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 /**获取入口文件路径**/
 const _entries = {};
@@ -81,6 +82,7 @@ module.exports = (() => {
                 'process.env.NODE_ENV': '"development"',
             }),
             new ExtractTextPlugin('[name].css'),
+            new OpenBrowserPlugin({url:'http://localhost:3000/'})
         ].concat(htmlPlugins()),
 
         module:{
