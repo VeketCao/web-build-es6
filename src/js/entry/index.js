@@ -3,10 +3,9 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HellWorld from '../components/test/HelloWorld';
+import HellWorld from '../components/HelloWorld/main';
 
-import '../../scss/lib/base.css';
-import '../../scss/main.scss';
+import '../../css/base.css';
 
 ReactDOM.render(<HellWorld></HellWorld>, document.getElementById('app'));
 

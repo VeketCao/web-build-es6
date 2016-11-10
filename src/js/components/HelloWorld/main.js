@@ -2,7 +2,7 @@
  * Created by Veket on 2016/11/10.
  */
 import React, { Component,PropTypes} from 'react';
-
+import './main.css';
 
 class HelloWorld extends Component {
     constructor(props, content) {
@@ -13,9 +13,9 @@ class HelloWorld extends Component {
             height: this.props.height||'60px'
         };
         return (
-            <div className="bg_test" style={titleStyle}>
+            <div id="HelloWorld" style={titleStyle}>
                 <i className="img_test"></i>
-                <span style={{'color':'#fff'}}>Hello World</span>
+                <span>Hello World</span>
                 { this.props.children }
             </div>
         );

@@ -87,14 +87,12 @@ module.exports = (() => {
                     exclude: [nodeModulesPath],
                 },
                 {
-                    test: /\.css$/, // Only .css files
-                    include: [path.resolve(__dirname, 'src/scss')],
+                    test: /\.css$/,
                     exclude: [nodeModulesPath],
                     loader: ExtractTextPlugin.extract('style', 'css!postcss?parser=postcss-scss'),
                 },
                 {
                     test: /\.scss$/,
-                    include: [path.resolve(__dirname, 'src/scss')],
                     exclude: [nodeModulesPath],
                     loader: ExtractTextPlugin.extract('style', '!css!sass!postcss?parser=postcss-scss'),
                 },

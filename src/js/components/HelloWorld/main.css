@@ -1,0 +1,10 @@
+#HelloWorld{}
+#HelloWorld .img_test{
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(./image.png) no-repeat center center;
+}
