@@ -10,11 +10,9 @@ const nodeModulesPath = path.resolve(__dirname,'node_modules');
 const srcDir = path.resolve(process.cwd(),'src');
 const libDir = path.resolve(srcDir, 'js/lib');
 const glob = require('glob');
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const AUTOPREFIXER_BROWSERS = [
-    'Explorer >= 9', 'Chrome >= 35', 'Firefox >= 31', 'Opera >= 12', 'Safari >= 7.1', 'Android 2.3', 'iOS >= 7', 'Android >= 4',
-];
 
 /**考虑多页面应用，多个入口文件**/
 const _entries = {};
@@ -52,7 +50,6 @@ module.exports = (() => {
             alias:{
                 react: `${nodeModulesPath}/react`,
                 reactDom: `${nodeModulesPath}/react-dom`,
-                jquery:`${libDir}/jquery/jquery-1.11.2.min.js`,
                 scss:`${srcDir}/scss`,
                 img:`${srcDir}/img`,
                 fonts:`${srcDir}/fonts`
@@ -70,6 +67,10 @@ module.exports = (() => {
             new CommonsChunkPlugin({
                 names: ['common', 'vendor'],
                 minChunks: 2,
+            }),
+            new UglifyJsPlugin({
+                compress: { warnings: false},
+                mangle: { except: ['$super', '$', 'exports', 'require']}
             }),
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"'}),
             new ExtractTextPlugin('css/[contenthash:8].[name].min.css'),
@@ -111,10 +112,12 @@ module.exports = (() => {
         },
 
         // postcss 插件
-        postcss: (bundler) => [
-            require('postcss-import')({ addDependencyTo: bundler }),
-            require('postcss-nested')(),
-            require('postcss-cssnext')({ autoprefixer: AUTOPREFIXER_BROWSERS }),
+        postcss: () => [
+            require('precss'),
+            require('autoprefixer'),
+            require('postcss-color-gray'),
+            require('postcss-css-variables'),
+            require('postcss-custom-media'),
         ],
     };
 

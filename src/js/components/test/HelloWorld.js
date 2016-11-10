@@ -3,15 +3,20 @@
  */
 import React, { Component,PropTypes} from 'react';
 
+
 class HelloWorld extends Component {
     constructor(props, content) {
         super(props, content);
     }
     render() {
+        const titleStyle = {
+            height: this.props.height||'60px'
+        };
         return (
-            <div>
+            <div className="bg_test" style={titleStyle}>
+                <i className="img_test"></i>
+                <span style={{'color':'#fff'}}>Hello World</span>
                 { this.props.children }
-                <span>Hello World</span>
             </div>
         );
     }
