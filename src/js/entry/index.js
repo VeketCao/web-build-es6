@@ -3,11 +3,9 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HellWorld from '../components/HelloWorld/main';
 
-console.log('aaa');
-
-
-ReactDOM.render(<span> hell world</span>, document.getElementById('app'));
+ReactDOM.render(<HellWorld></HellWorld>, document.getElementById('app'));
 
 
 

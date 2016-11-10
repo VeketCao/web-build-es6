@@ -1,5 +1,5 @@
 /**
- * Created by Veket on 2016/11/9.
+ * Created by Veket on 2016/11/10.
  */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');//生成一个HTML文件
@@ -28,7 +28,6 @@ entryFiles.forEach((filePath) => {
 });
 
 module.exports = (() => {
-
     const htmlPlugins = () => {
         const entryHtml = glob.sync(`${srcDir}/html/*.html`);
         const rtn = [];
@@ -63,17 +62,7 @@ module.exports = (() => {
         entry:Object.assign(_entries, { vendor: ['react', 'reactDom'] }),
         output:{
             path:buildPath,
-            filename:'[name].js',
-        },
-        devtool: 'eval',
-        devServer:{
-            devtool:'eval',
-            hot:true,
-            inline:true,
-            publicPath:'',
-            port:3000,
-            host:'localhost',
-            stats:{cached:false,colors:true}
+            filename:'js/[hash:8].[name].min.js',
         },
         plugins:[
             new webpack.HotModuleReplacementPlugin(),
@@ -82,10 +71,10 @@ module.exports = (() => {
                 names: ['common', 'vendor'],
                 minChunks: 2,
             }),
-            new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"'}),
-            new ExtractTextPlugin('[name].css'),
+            new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"'}),
+            new ExtractTextPlugin('css/[contenthash:8].[name].min.css'),
             //new webpack.ProvidePlugin({'$': "jquery"}),//jquery插件
-            new OpenBrowserPlugin({url:'http://localhost:3000/index.html'})
+            //new OpenBrowserPlugin({url:'http://localhost:3000/'})
         ].concat(htmlPlugins()),
 
         module:{
@@ -93,6 +82,7 @@ module.exports = (() => {
                 {
                     test: /\.jsx?$/,
                     loaders: ['react-hot', 'babel'],
+                    include: [path.resolve(__dirname, 'src/js')],
                     exclude: [nodeModulesPath],
                 },
                 {
@@ -129,4 +119,12 @@ module.exports = (() => {
     };
 
     return config;
+
 })();
+
+
+
+
+
+
+
