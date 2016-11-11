@@ -34,6 +34,7 @@ module.exports = (() => {
             const cfg = {
                 template:`${filePath}`,
                 filename:`${filename}.html`,
+                favicon:`${srcDir}/img/favicon.ico`,
                 chunksSortMode:'dependency'
             };
             if(filename in _entries){
