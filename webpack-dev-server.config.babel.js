@@ -80,7 +80,7 @@ module.exports = (() => {
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"'}),
             new ExtractTextPlugin('[name].css'),
             //new webpack.ProvidePlugin({'$': "jquery"}),//jquery插件
-            new OpenBrowserPlugin({url:'http://localhost:3000/index.html'})
+            new OpenBrowserPlugin({url:'http://localhost:3000/main.html'})
         ].concat(htmlPlugins()),
 
         module:{
