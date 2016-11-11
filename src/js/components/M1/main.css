@@ -1,0 +1,7 @@
+#M1{}
+#M1 .m1-img-test{
+  display: block;
+  width: 17px;
+  height: 14px;
+  background: url(./image.png) no-repeat center center;
+}

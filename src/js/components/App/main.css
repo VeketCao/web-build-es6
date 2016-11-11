@@ -1,0 +1,11 @@
+#App{}
+#App{} .app-container{
+    margin: 0 auto;
+    background: #fff;
+    padding:0;
+    height:100%;
+}
+#App{} .app-content-container{
+    min-height: 450px;
+    background: #fff;
+}

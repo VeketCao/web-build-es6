@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');//生成一个HTML文件
 const ExtractTextPlugin = require('extract-text-webpack-plugin');//可以把css从js中抽离出来
 const path = require('path');
-const buildPath = path.resolve(__dirname,'build');
+const buildPath = path.resolve(__dirname,'dist');
 const nodeModulesPath = path.resolve(__dirname,'node_modules');
 const srcDir = path.resolve(process.cwd(),'src');
 const libDir = path.resolve(srcDir, 'js/lib');
@@ -50,13 +50,12 @@ module.exports = (() => {
             alias:{
                 react: `${nodeModulesPath}/react`,
                 reactDom: `${nodeModulesPath}/react-dom`,
-                scss:`${srcDir}/scss`,
                 img:`${srcDir}/img`,
                 fonts:`${srcDir}/fonts`
             },
             extensions:['', '.js', 'jsx', '.css', '.scss', '.ejs', '.png', '.jpg']
         },
-        entry:Object.assign(_entries, { vendor: ['react', 'reactDom'] }),
+        entry:Object.assign(_entries, { vendor: ['react', 'reactDom',] }),
         output:{
             path:buildPath,
             filename:'[name].js',

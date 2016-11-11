@@ -3,11 +3,11 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HellWorld from '../components/HelloWorld/main';
+import RouterConfig from '../components/RouterConfig/main';
 
 import '../../css/base.css';
 
-ReactDOM.render(<HellWorld></HellWorld>, document.getElementById('app'));
+ReactDOM.render(<RouterConfig></RouterConfig>, document.getElementById('app'));
 
 
 

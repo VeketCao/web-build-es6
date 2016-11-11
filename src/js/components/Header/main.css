@@ -1,0 +1,12 @@
+#Header{
+    width:100%;
+    height:50px;
+    background:bisque;
+    min-width:1190px;
+}
+#Header .header-nav{
+    float:left;
+}
+#Header .header-nav li{
+    float:left;height: 100%;padding: 0px 10px 8px 10px;
+}
