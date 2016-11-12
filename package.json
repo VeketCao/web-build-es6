@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/VeketCao/web-build-es6#readme",
   "dependencies": {
+    "material-ui": "^0.16.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0"
@@ -45,7 +46,6 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.1",
     "image-webpack-loader": "^1.6.3",
-    "lodash": "^4.16.6",
     "node-sass": "^3.11.2",
     "open-browser-webpack-plugin": "0.0.3",
     "postcss": "^5.2.5",
@@ -61,6 +61,7 @@
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
+    "underscore": "^1.8.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

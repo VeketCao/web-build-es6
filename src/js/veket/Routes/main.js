@@ -8,23 +8,24 @@ import M1 from '../M1/main';
 import M2 from '../M2/main';
 import M3 from '../M3/main';
 
-class RouterConfig extends Component {
+class Routes extends Component {
     constructor(props, content) {
         super(props, content);
     }
     render() {
         return (
             <Router history={hashHistory}>
-                <Route path='/' component={App}>
-                    <IndexRedirect to='/m1'/>
+                <Route path='/' component={App}><
+                    IndexRedirect to='/m1'/>
                     <Route path='/m1' component={M1}>
                         <Route path='/m1/m3' component={M3}/>
                     </Route>
                     <Route path='/m2' component={M2}/>
                 </Route>
+
             </Router>
         );
     }
 }
 
-export default RouterConfig;
+export default Routes;

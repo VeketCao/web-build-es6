@@ -74,7 +74,7 @@ module.exports = (() => {
             }),
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"'}),
             new ExtractTextPlugin('css/[contenthash:8].[name].min.css'),
-            //new webpack.ProvidePlugin({'$': "jquery"}),//jquery插件
+            new webpack.ProvidePlugin({'_': "underscore"}),
             //new OpenBrowserPlugin({url:'http://localhost:3000/'})
         ].concat(htmlPlugins()),
 

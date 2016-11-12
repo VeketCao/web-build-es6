@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouterConfig from '../veket/RouterConfig/main';
+import Routes from '../veket/Routes/main';
 
 import '../../css/base.css';
 
-ReactDOM.render(<RouterConfig></RouterConfig>, document.getElementById('app'));
+ReactDOM.render(<Routes></Routes>, document.getElementById('app'));
