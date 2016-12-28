@@ -61,7 +61,6 @@ module.exports = (() => {
             path:buildPath,
             filename:'[name].js',
         },
-        devtool: 'eval',
         devServer:{
             devtool:'eval',
             hot:true,
@@ -81,8 +80,8 @@ module.exports = (() => {
             }),
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"'}),
             new ExtractTextPlugin('[name].css'),
-            new webpack.ProvidePlugin({'_': "underscore",'ps': "pubsub-js"}),
-            new OpenBrowserPlugin({url:'http://localhost:3000/veket.html',browser:'chrome'})
+            new webpack.ProvidePlugin({'_': "underscore",'PubSub': "pubsub-js"}),
+            new OpenBrowserPlugin({url:'http://localhost:3000/main.html',browser:'chrome'})
         ].concat(htmlPlugins()),
 
         module:{

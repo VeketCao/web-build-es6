@@ -9,13 +9,13 @@ class M3 extends Component {
         this.clickHandle = this.clickHandle.bind(this);
     }
     clickHandle(){
-        ps.publish( 'MY_TOPIC', 'hello world!' );
+        PubSub.publish( 'MY_TOPIC', 'hello world!' );
     }
     render() {
         return (
             <div id="M3">
                 <span>this is m3</span>
-                <button onClick={this.clickHandle}>test pubsub</button>
+                <button onClick={this.clickHandle}>btn</button>
             </div>
         );
     }

@@ -12,12 +12,12 @@ class M1 extends Component {
         }
     }
     componentWillMount(){
-        this.pubsub_token = ps.subscribe('MY_TOPIC', function(topic, param) {
+        this.pubsub_token = PubSub.subscribe('MY_TOPIC', function(topic, param) {
             this.setState({pubsub_param:param});
         }.bind(this));
     }
     componentWillUnmount(){
-        ps.unsubscribe(this.pubsub_token);
+        PubSub.unsubscribe(this.pubsub_token);
     }
     render() {
         const titleStyle = {
