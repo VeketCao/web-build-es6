@@ -8,8 +8,12 @@ class Footer extends Component {
         super(props, content);
     }
     render() {
+        var bg = {
+            background:'#eee',
+            height:'100px'
+        }
         return (
-            <div id="Footer" >
+            <div id="Footer"  style={bg}>
                 <span>this is Footer...</span>
             </div>
         );

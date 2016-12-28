@@ -15,14 +15,13 @@ class Routes extends Component {
     render() {
         return (
             <Router history={hashHistory}>
-                <Route path='/' component={App}><
-                    IndexRedirect to='/m1'/>
+                <Route path='/' component={App}>
+                    <IndexRedirect to='/m1'/>
                     <Route path='/m1' component={M1}>
                         <Route path='/m1/m3' component={M3}/>
                     </Route>
                     <Route path='/m2' component={M2}/>
                 </Route>
-
             </Router>
         );
     }

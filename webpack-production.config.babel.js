@@ -54,7 +54,7 @@ module.exports = (() => {
                 img:`${srcDir}/img`,
                 fonts:`${srcDir}/fonts`
             },
-            extensions:['', '.js', 'jsx', '.css', '.scss', '.ejs', '.png', '.jpg']
+            extensions:['', '.js', '.css', '.scss', '.png', '.jpg']
         },
         entry:Object.assign(_entries, { vendor: ['react', 'reactDom'] }),
         output:{
@@ -63,6 +63,7 @@ module.exports = (() => {
         },
         plugins:[
             new webpack.HotModuleReplacementPlugin(),
+            new webpack.optimize.OccurenceOrderPlugin(),
             new webpack.NoErrorsPlugin(),
             new CommonsChunkPlugin({
                 names: ['common', 'vendor'],
@@ -74,14 +75,14 @@ module.exports = (() => {
             }),
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"'}),
             new ExtractTextPlugin('css/[contenthash:8].[name].min.css'),
-            new webpack.ProvidePlugin({'_': "underscore"}),
+            new webpack.ProvidePlugin({'_': "underscore",'ps': "pubsub-js"}),
             //new OpenBrowserPlugin({url:'http://localhost:3000/'})
         ].concat(htmlPlugins()),
 
         module:{
             loaders: [
                 {
-                    test: /\.jsx?$/,
+                    test: /\.js?$/,
                     loaders: ['react-hot', 'babel'],
                     include: [path.resolve(__dirname, 'src/js')],
                     exclude: [nodeModulesPath],

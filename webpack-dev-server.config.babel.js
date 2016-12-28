@@ -54,7 +54,7 @@ module.exports = (() => {
                 img:`${srcDir}/img`,
                 fonts:`${srcDir}/fonts`
             },
-            extensions:['', '.js', 'jsx', '.css', '.scss', '.ejs', '.png', '.jpg']
+            extensions:['', '.js', '.css', '.scss', '.png', '.jpg']
         },
         entry:Object.assign(_entries, { vendor: ['react', 'reactDom',] }),
         output:{
@@ -73,6 +73,7 @@ module.exports = (() => {
         },
         plugins:[
             new webpack.HotModuleReplacementPlugin(),
+            new webpack.optimize.OccurenceOrderPlugin(),
             new webpack.NoErrorsPlugin(),
             new CommonsChunkPlugin({
                 names: ['common', 'vendor'],
@@ -80,14 +81,14 @@ module.exports = (() => {
             }),
             new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"'}),
             new ExtractTextPlugin('[name].css'),
-            new webpack.ProvidePlugin({'_': "underscore"}),
-            new OpenBrowserPlugin({url:'http://localhost:3000/main.html'})
+            new webpack.ProvidePlugin({'_': "underscore",'ps': "pubsub-js"}),
+            new OpenBrowserPlugin({url:'http://localhost:3000/veket.html',browser:'chrome'})
         ].concat(htmlPlugins()),
 
         module:{
             loaders: [
                 {
-                    test: /\.jsx?$/,
+                    test: /\.js?$/,
                     loaders: ['react-hot', 'babel'],
                     exclude: [nodeModulesPath],
                 },

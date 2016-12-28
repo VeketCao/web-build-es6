@@ -6,11 +6,16 @@ import React, { Component,PropTypes} from 'react';
 class M3 extends Component {
     constructor(props, content) {
         super(props, content);
+        this.clickHandle = this.clickHandle.bind(this);
+    }
+    clickHandle(){
+        ps.publish( 'MY_TOPIC', 'hello world!' );
     }
     render() {
         return (
             <div id="M3">
                 <span>this is m3</span>
+                <button onClick={this.clickHandle}>test pubsub</button>
             </div>
         );
     }
