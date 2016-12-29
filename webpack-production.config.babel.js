@@ -62,9 +62,6 @@ module.exports = (() => {
             filename:'js/[hash:8].[name].min.js',
         },
         plugins:[
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.optimize.OccurenceOrderPlugin(),
-            new webpack.NoErrorsPlugin(),
             new CommonsChunkPlugin({
                 names: ['common', 'vendor'],
                 minChunks: 2,
@@ -73,10 +70,8 @@ module.exports = (() => {
                 compress: { warnings: false},
                 mangle: { except: ['$super', '$', 'exports', 'require']}
             }),
-            new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"'}),
             new ExtractTextPlugin('css/[contenthash:8].[name].min.css'),
-            new webpack.ProvidePlugin({'_': "underscore",'PubSub': "pubsub-js"}),
-            //new OpenBrowserPlugin({url:'http://localhost:3000/'})
+            new webpack.ProvidePlugin({'_': "underscore",'PubSub': "pubsub-js"})
         ].concat(htmlPlugins()),
 
         module:{

@@ -78,7 +78,6 @@ module.exports = (() => {
                 names: ['common', 'vendor'],
                 minChunks: 2,
             }),
-            new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"development"'}),
             new ExtractTextPlugin('[name].css'),
             new webpack.ProvidePlugin({'_': "underscore",'PubSub': "pubsub-js"}),
             new OpenBrowserPlugin({url:'http://localhost:3000/main.html',browser:'chrome'})

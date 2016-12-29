@@ -9,7 +9,7 @@ class M3 extends Component {
         this.clickHandle = this.clickHandle.bind(this);
     }
     clickHandle(){
-        PubSub.publish( 'MY_TOPIC', 'hello world!' );
+        PubSub.publish( 'MY_TOPIC', 'hello world!');
     }
     render() {
         return (
